@@ -85,6 +85,14 @@ def main():
 # Call main
 if __name__ == "__main__":
     main()
+# TEST CASE
+A: B C
+B: A D E
+C: A F
+D: B
+E: B F
+F: C E
+END
 
 # REFERENCES
 # 1. https://www.educative.io/answers/how-to-implement-a-breadth-first-search-in-python
