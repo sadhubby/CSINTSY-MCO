@@ -26,7 +26,7 @@ def AStar(graph, heuristic, start, goal):
         if current == goal:
             return getPath(came_from, start, goal)
 
-        for neighbor, cost in graph[current].items():
+        for neighbor, cost in graph.get(current, {}).items():  # Use .get() to handle missing keys
             tentative_g_score = g_score[current] + cost
             if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
                 came_from[neighbor] = current
@@ -74,7 +74,7 @@ def getGraph():
         if line == 'END':  # Exit loop when "END" is detected
             break
         node, h_value = line.split()
-        heuristic[node] = int(h_value)
+        heuristic[node] = float(h_value)
 
     return graph, heuristic  # Return graph and heuristic values
 
