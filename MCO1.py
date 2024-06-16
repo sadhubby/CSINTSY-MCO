@@ -2,41 +2,39 @@
 # N01 Group 2
 # Members: Rodriguez, Andrew ; De Guzman, Evan ; Tiu, Lance ; Ramos, Rafael ; Wang, Vince
 
+import heapq
 
 # BFS function
-def BFS(graph, start, goal):
+def AStar(graph, heuristic, start, goal):
+    open_set = []
+    heapq.heappush(open_set, (0 + heuristic[start], start))
+    came_from = {start: None}
+    g_score = {start: 0}
+    visit = []  # Visit list for A*
 
-    # Initialize variables
-    queue = [start] # Queue
-    known = {start: None} # Known nodes 
-    visit = [] # Visit list
+    while open_set:
+        current = heapq.heappop(open_set)[1]
+        visit.append(current)  # Add node to visit list
 
-    # Loop while queue is filled
-    while queue:
-        
-        current = queue.pop(0) # Get next node from queue / Deque
-        visit.append(current) # Add node to visit list
-        
-        # print progress
+        # Print progress
         print(f"Visited: {list(visit)}")
         print(f"Current node: {current}")
-        print(f"Queue: {list(queue)}")
-        print(f"Known: {known}\n")
-        
-        # If goal found, return path
+        print(f"Open set: {[node for _, node in open_set]}")
+        print(f"G-scores: {g_score}")
+        print(f"Came from: {came_from}\n")
+
         if current == goal:
-            return getPath(known, start, goal) # return BFS path
-        
-        # Visit the neighboring nodes
-        for neighbor in graph[current]:
+            return getPath(came_from, start, goal)
 
-            if neighbor not in known: # Check if node is already known
+        for neighbor, cost in graph[current].items():
+            tentative_g_score = g_score[current] + cost
+            if neighbor not in g_score or tentative_g_score < g_score[neighbor]:
+                came_from[neighbor] = current
+                g_score[neighbor] = tentative_g_score
+                f_score = tentative_g_score + heuristic[neighbor]
+                heapq.heappush(open_set, (f_score, neighbor))
+                print(f"Added {neighbor} to the open set with f-score: {f_score}\n")
 
-                queue.append(neighbor) # Add neighbor to queue
-                known[neighbor] = current # Add current node to known list
-                print(f"Added {neighbor} to the queue\n")
-    
-    # If unable to find goal, return none
     return None
 
 # get path function
@@ -115,12 +113,12 @@ def main():
                 else:
                     print(f"No path found from {start} to {goal}")
 
-            #elif algo_choice == '2':
-             #   path = AStar(graph, heuristic, start, goal)
-              #  if path:
-               #     print(f"The path from {start} to {goal} is: {path}")
-               # else:
-                #    print(f"No path found from {start} to {goal}")
+            elif algo_choice == '2':
+               path = AStar(graph, heuristic, start, goal)
+               if path:
+                    print(f"The path from {start} to {goal} is: {path}")
+               else:
+                    print(f"No path found from {start} to {goal}")
 
             elif algo_choice == '3':
                 continue
