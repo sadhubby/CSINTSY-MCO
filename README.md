@@ -29,7 +29,7 @@ this script can be inputted.
     BOS: NY 250
     CHI: NY 800 SF 2200
 
-After pasting this entire script, please type "END". This already solves the sensitivity of the program to spaces and instead uses shortened markers for the cities. Besides that it makes sure that all possible nodes that can be visited from an individual node are present.
+After pasting this entire script, please type END. This already solves the sensitivity of the program to spaces and instead uses shortened markers for the cities. Besides that it makes sure that all possible nodes that can be visited from an individual node are present.
 
 Afterwards the program will ask for heuristic cost. The input format for this section is `node` `heuristic cost`. Again, this also has sensitivity to spaces, so as to prevent errors, please do not add spaces to cities which names have spaces. Please copy paste this input script that also abides by the problem specifications.
 
@@ -41,7 +41,7 @@ Afterwards the program will ask for heuristic cost. The input format for this se
     LA 2400
     CHI 0
 
-After pasting this entire script, please type "END". By this point, the graph is defined. Should there be a need to edit this within the Command Line Interface, select 1 again from the main menu and simply change certain values but the entire graph must once again inputted. If the user tries to execute an algorithm without a defined graph, the program will ask the user to do so.
+After pasting this entire script, please type END. By this point, the graph is defined. Should there be a need to edit this within the Command Line Interface, select 1 again from the main menu and simply change certain values but the entire graph must once again inputted. If the user tries to execute an algorithm without a defined graph, the program will ask the user to do so.
 
 ## Choice of Algorithms
 
