@@ -1,6 +1,8 @@
 # CSINTSY-MCO1
 CSINTSY MCO1
 
+The program to be used is MCO1.py.
+
 On start, the program will prompt the user to pick to either create or edit a graph or choose an algortihm to search for a path
 
 1. Define or Edit Graph
