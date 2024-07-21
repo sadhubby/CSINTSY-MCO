@@ -7,12 +7,12 @@ forget_count(0).
 symptom(covid19, fever).
 symptom(covid19, fatigue).
 symptom(covid19, loss_of_taste).
-symptom(covid19, loss_of_appetite).
+symptom(covid19, coughing).
 
 /*Symptoms for flu*/
 symptom(flu, fever).
 symptom(flu, muscle_aches).
-symptom(flu, cough).
+symptom(flu, coughing).
 symptom(flu, loss_of_appetite).
 
 /*Symptoms for tonsillitis*/
@@ -94,7 +94,8 @@ prevention(dementia, mental_exercises).
 disease(Patient, covid19) :-
     has_symptom(Patient, fever),
     has_symptom(Patient, dry_cough),
-    has_symptom(Patient, fatigue).
+    has_symptom(Patient, fatigue),
+    has_symptom(Patient, loss_of_taste).
 
 /*Disease rule for flu*/
 disease(Patient, flu) :-
