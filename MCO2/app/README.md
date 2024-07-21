@@ -18,6 +18,9 @@ First, to initiliaze the knowledge data base, click on `File` on the top ribbon,
 To start the system, please type `start_diagnosis.`
 
 The program will then ask to type a symptom. After typing a symptom, please do remember to add a period after. For example, the symptom of 
-coughing will be typed as `coughing.` then press Enter. This will loop over until the user types `done.`
+coughing will be typed as `coughing.` then press Enter. Additional note, for symptoms with spaces, use an underscore instead. For example, the symptom of
+difficulty breathing will be typed as `difficulty_breathing`. 
+
+This will loop over until the user types `done.`
 
 Afterwards, should the program find an illness given the symptoms the user has input in the database, the program will return a diagnosis, medication for treatment, and an action for prevention.
