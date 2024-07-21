@@ -73,7 +73,7 @@ prevention(covid19, vaccination).
 prevention(flu, vaccination).
 
 /*Prevention for tonsilitis*/
-prevention(tonsillitis, distance_from_others).
+prevention(tonsillitis, avoid_sharing_utensils).
 prevention(tonsillitis, wash_hands_often).
 
 /*Prevention for asthma*/
@@ -93,7 +93,7 @@ prevention(dementia, mental_exercises).
 /*Disease rule for covid*/
 disease(Patient, covid19) :-
     has_symptom(Patient, fever),
-    has_symptom(Patient, dry_cough),
+    has_symptom(Patient, coughing),
     has_symptom(Patient, fatigue),
     has_symptom(Patient, loss_of_taste).
 
@@ -136,7 +136,7 @@ disease(Patient, dementia) :-
 
 /*TREATMENT RULES*/
 
-/*Treatment rule for covid19*/
+/*Treatment rule*/
 treatment(Patient, Medication) :-
     disease(Patient, Disease),
     medication(Disease, Medication).
@@ -169,18 +169,38 @@ ask_symptoms :-
 
 diagnose :-
    (disease(patient, Disease) ->
-    write('Diagnosis: '), write(Disease), nl,
-    treatment(patient, Medication),
-    write('Prescribing you: '), write(Medication), nl,
-    preventative(patient, Action),
-    write('To prevent: '), write(Action), nl;
+    nl, write('Diagnosis: '), write(Disease), nl,
+    findall(Med, treatment(patient, Med), Medications),
+    (Medications \= [] ->
+         nl, write('Prescribing you: '),nl, print_list(Medications), nl),
+    findall(Act, preventative(patient, Act), Actions),
+    (Actions \= [] ->
+    write('To prevent: '), nl, print_list(Actions), nl);
     write('No diagnosis could be found.'), nl
 ).
+
+print_list([]).
+print_list([H|T]):-
+    write('- '), write(H), nl,
+    print_list(T).
+
+
 start_diagnosis :-
     retractall(has_symptom(patient, _)),
-    retractall(forget_count()),
+    retractall(forget_count(_)),
     assertz(forget_count(0)),
     ask_symptoms,
-    (   diagnose ->
-    true).
+   (diagnose -> true).
+
+
+
+
+
+
+
+
+
+
+
+
 
