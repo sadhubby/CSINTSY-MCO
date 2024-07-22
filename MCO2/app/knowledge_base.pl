@@ -11,7 +11,7 @@ symptom(covid19, coughing).
 
 /*Symptoms for flu*/
 symptom(flu, fever).
-symptom(flu, muscle_aches).
+symptom(flu, body_aches).
 symptom(flu, coughing).
 symptom(flu, loss_of_appetite).
 
@@ -41,7 +41,7 @@ symptom(dementia, forgets_easily).
 /*MEDICATIONS*/
 
 /*Medication for covid19*/
-medication(covid19, oral_antiviral).
+medication(covid19, antiviral).
 
 /*Medication for flu*/
 medication(flu, antiviral).
@@ -71,6 +71,7 @@ prevention(covid19, vaccination).
 
 /*Prevention for flu*/
 prevention(flu, vaccination).
+prevention(flu, wash_hands_often).
 
 /*Prevention for tonsilitis*/
 prevention(tonsillitis, avoid_sharing_utensils).
@@ -84,10 +85,11 @@ prevention(asthma, ready_inhaler).
 prevention(common_cold, wash_hands_often).
 
 /*prevention for bronchitis*/
-prevention(bronchitis, stop_smoking).
+prevention(bronchitis, avoid_smoking).
+prevention(bronchitis, avoid_triggers).
 
 prevention(dementia, mental_exercises).
-
+prevention(dementia, avoid_smoking).
 /*DISEASE RULES*/
 
 /*Disease rule for covid*/
@@ -100,9 +102,9 @@ disease(Patient, covid19) :-
 /*Disease rule for flu*/
 disease(Patient, flu) :-
     has_symptom(Patient, fever),
-    has_symptom(Patient, chills),
-    has_symptom(Patient, muscles_ache),
-    has_symptom(Patient, cough).
+    has_symptom(Patient, body_aches),
+    has_symptom(Patient, loss_of_appetite),
+    has_symptom(Patient, coughing).
 
 /*Disease rule for tonsilitis*/
 disease(Patient, tonsillitis) :-
