@@ -6,12 +6,15 @@ the group has chosen the domain of medicine.
 The purpose of the program is to diagnose users. The users will give a set of symptoms, and the system will look through its knowledge base to find the illness.
 Given an illness, it will diagnose the user, suggest medication and treatment, and a course of action for future prevention.
 
-For this project, the group will use SWI-Prolog.
+For this project, the group will use SWI-Prolog. 
+
+## Prerequisite
+
+A prerequisite for this project is SWI-Prolog. To install, please refer to this site https://www.swi-prolog.org/download/stable.
 
 ## Consulting the database
 
-First, to initiliaze the knowledge data base, click on `File` on the top ribbon, then `Consult ...`. The file explorer window would pop-up. Please select the file called
-`knowledge_base.pl`. This will initialize the database and allow to start the expert system.
+Once SWI-Prolog is opened, the program is now executable. First, to initiliaze the knowledge data base, click on `File` on the top ribbon, then `Consult ...`. The file explorer window would pop-up. Please select the file called `knowledge_base.pl`. This will initialize the knowledge base and allow to start the expert system.
 
 ## Using the system
 
@@ -24,3 +27,7 @@ difficulty breathing will be typed as `difficulty_breathing`.
 This will loop over until the user types `done.`
 
 Afterwards, should the program find an illness given the symptoms the user has input in the database, the program will return a diagnosis, medication for treatment, and an action for prevention.
+
+## Attention
+
+This project is for educational purposes only and is made as a submission to the course CSINTSY. The use of this program can not and must not replace accurate results from a doctor. The diagnoses produced by the system is only indicative of a person's health. Should you as the user feel any of the symptoms, please consult a doctor immediately.
