@@ -14,7 +14,7 @@ A prerequisite for this project is SWI-Prolog. To install, please refer to this 
 
 ## Consulting the database
 
-Once SWI-Prolog is opened, the program is now executable. First, to initiliaze the knowledge data base, click on `File` on the top ribbon, then `Consult ...`. The file explorer window would pop-up. Please select the file called `knowledge_base.pl`. This will initialize the knowledge base and allow to start the expert system.
+Once SWI-Prolog is opened, the program is now executable. First, to initiliaze the knowledge data base, click on `File` on the top ribbon, then `Consult ...`. The file explorer window would pop-up. Please select the file called `expert_system.pl`. This will initialize the knowledge base and allow to start the expert system.
 
 ## Using the system
 
